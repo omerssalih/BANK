@@ -1,6 +1,5 @@
 package com.sms.management.student;
 
-import com.sms.management.lesson.Lesson;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
