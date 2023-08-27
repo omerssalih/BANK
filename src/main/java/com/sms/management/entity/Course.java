@@ -1,4 +1,4 @@
-package com.sms.management.course;
+package com.sms.management.entity;
 
 import jakarta.persistence.*;
 

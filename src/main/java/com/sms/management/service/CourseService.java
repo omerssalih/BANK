@@ -1,5 +1,7 @@
-package com.sms.management.course;
+package com.sms.management.service;
 
+import com.sms.management.repository.CourseRepository;
+import com.sms.management.entity.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
