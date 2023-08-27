@@ -1,5 +1,7 @@
-package com.sms.management.student;
+package com.sms.management.controller;
 
+import com.sms.management.entity.Student;
+import com.sms.management.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

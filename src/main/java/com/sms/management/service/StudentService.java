@@ -1,5 +1,7 @@
-package com.sms.management.student;
+package com.sms.management.service;
 
+import com.sms.management.entity.Student;
+import com.sms.management.repository.StudentRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
