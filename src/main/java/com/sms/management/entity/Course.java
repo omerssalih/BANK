@@ -1,9 +1,21 @@
 package com.sms.management.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Course {
 
     @Id
@@ -18,50 +30,8 @@ public class Course {
     private String courseName;
     private int courseCode;
 
-    public Course() {
-    }
+    @JsonBackReference
+    @ManyToMany(mappedBy = "assignedCourses")
+    private Set<Student> students = new HashSet<>();
 
-    public Course(Long courseId, String courseName, int courseCode) {
-        this.courseId = courseId;
-        this.courseName = courseName;
-        this.courseCode = courseCode;
-    }
-
-    public Course(String courseName, int courseCode) {
-        this.courseName = courseName;
-        this.courseCode = courseCode;
-    }
-
-    public Long getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(Long courseId) {
-        this.courseId = courseId;
-    }
-
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public int getCourseCode() {
-        return courseCode;
-    }
-
-    public void setCourseCode(int courseCode) {
-        this.courseCode = courseCode;
-    }
-
-    @Override
-    public String toString() {
-        return "Course{" +
-                "courseId=" + courseId +
-                ", courseName='" + courseName + '\'' +
-                ", courseCode=" + courseCode +
-                '}';
-    }
 }

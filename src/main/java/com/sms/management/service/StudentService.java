@@ -1,25 +1,28 @@
 package com.sms.management.service;
 
+import com.sms.management.entity.Course;
 import com.sms.management.entity.Student;
+import com.sms.management.exception.StudentNotFoundException;
+import com.sms.management.repository.CourseRepository;
 import com.sms.management.repository.StudentRepository;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
+@RequiredArgsConstructor
 public class StudentService {
 
     private final StudentRepository studentRepository;
+    private final CourseService courseService;
 
-    @Autowired
-    public StudentService(StudentRepository studentRepository){
-
-        this.studentRepository = studentRepository;
-    }
     public List<Student> getStudents() {
         return studentRepository.findAll();
 
@@ -57,5 +60,15 @@ public class StudentService {
             }
             student.setEmail(email);
         }
+    }
+
+
+    public void assignCourseToStudent(Long studentId, Long courseId) {
+        Student student = studentRepository.findById(studentId).orElseThrow(() -> new StudentNotFoundException(
+                "student not found with id: " + studentId));
+        Course course = courseService.getCourseById(courseId);
+        student.getAssignedCourses().add(course);
+        studentRepository.save(student);
+
     }
 }
