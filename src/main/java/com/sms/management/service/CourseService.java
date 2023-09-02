@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -24,8 +26,14 @@ public class CourseService {
     }
 
     public List<Course> getCourses(){
+
         return courseRepository.findAll();
     }
+
+    public List<Course> getCoursesById(Long courseId) {
+        return courseRepository.findAllById(Collections.singleton(courseId));
+    }
+
 
     public void deleteCourse(Long courseId) {
         boolean exists = courseRepository.existsById(courseId);
@@ -49,4 +57,19 @@ public class CourseService {
         return courseRepository.findById(courseId).orElseThrow(() -> new CourseNotFoundException(
                  "course not found with id: " + courseId));
     }
+
+    public void updateCourse(Long courseId, String courseName, int courseCode) {
+        Optional<Course> optionalCourse = courseRepository.findById(courseId);
+
+        if (optionalCourse.isPresent()) {
+            Course course = optionalCourse.get();
+            course.setCourseName(courseName);
+            course.setCourseCode(courseCode);
+
+            courseRepository.save(course); // Veritabanına güncellemeyi kaydet
+        } else {
+            // Kurs bulunamadı durumunda ilgili işlemler yapılabilir
+        }
+    }
+
 }

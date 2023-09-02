@@ -3,18 +3,12 @@ package com.sms.management.service;
 import com.sms.management.entity.Course;
 import com.sms.management.entity.Student;
 import com.sms.management.exception.StudentNotFoundException;
-import com.sms.management.repository.CourseRepository;
 import com.sms.management.repository.StudentRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -24,9 +18,13 @@ public class StudentService {
     private final CourseService courseService;
 
     public List<Student> getStudents() {
-        return studentRepository.findAll();
 
+        return studentRepository.findAll();
     }
+    public List<Student> getStudentsById(Long id) {
+        return studentRepository.findAllById(Collections.singleton(id));
+    }
+
 
     public void addNewStudent(Student student) {
         Optional<Student> studentOptional = studentRepository
@@ -62,7 +60,6 @@ public class StudentService {
         }
     }
 
-
     public void assignCourseToStudent(Long studentId, Long courseId) {
         Student student = studentRepository.findById(studentId).orElseThrow(() -> new StudentNotFoundException(
                 "student not found with id: " + studentId));
@@ -70,5 +67,9 @@ public class StudentService {
         student.getAssignedCourses().add(course);
         studentRepository.save(student);
 
+    }
+
+    public void deleteStudentFromCourse(Long studentId) {
+        studentRepository.deleteById(studentId);
     }
 }

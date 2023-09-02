@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,38 +18,59 @@ public class StudentController {
 
     @Autowired
     public StudentController(StudentService studentService) {
+
         this.studentService = studentService;
     }
 
     @GetMapping
     public List<Student> getStudents() {
         return studentService.getStudents();
-
     }
-    @PostMapping
-    public void registerNewStudent(@RequestBody Student student){
 
+    @GetMapping(path = {"studentId"})
+    public List<Student> getStudentsById(Long id) {
+
+        return studentService.getStudentsById(id);
+    }
+
+    @GetMapping(path = "getStudentByCourse")
+    public ResponseEntity<List<Student>> getAllStudents() {
+        List<Student> students = studentService.getStudents();
+        List<Student> enrolledStudents = new ArrayList<>();
+        for (Student student : students) {
+            if (student.getAssignedCourses().size() > 0) {
+                enrolledStudents.add(student);
+            }
+        }
+
+        return ResponseEntity.ok(enrolledStudents);
+    }
+
+    @PostMapping
+    public void registerNewStudent(@RequestBody Student student) {
         studentService.addNewStudent(student);
     }
 
-    @DeleteMapping(path = "{studentId}")
-    public void deleteStudent(@PathVariable("studentId") Long studentId){
+    @DeleteMapping(path = "delete/{studentId}")
+    public void deleteStudent(@PathVariable("studentId") Long studentId) {
 
         studentService.deleteStudent(studentId);
     }
 
     @PutMapping
-    public void uptadeStudent(@RequestBody Student student){
+    public void uptadeStudent(@RequestBody Student student) {
         studentService.uptadeStudent(student.getId(), student.getName(), student.getEmail());
     }
 
-    @PostMapping ("/{studentId}/course/{courseId}")
+    @PostMapping("/{studentId}/course/{courseId}")
     public ResponseEntity assignCourseToStudent(
             @PathVariable Long studentId,
             @PathVariable Long courseId
-    ){
+    ) {
         studentService.assignCourseToStudent(studentId, courseId);
         return new ResponseEntity(HttpStatus.CREATED);
     }
+
+
 
 }
