@@ -1,14 +1,12 @@
 package com.sms.management.entity;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,11 +26,18 @@ public class Student {
             generator = "student_sequence")
 
     private Long id;
+    @Size(min = 2, max = 100)
+    @NotNull
+    @NotEmpty
     private String name;
+    @Email
+    @NotNull
+    @NotEmpty
     private String email;
+    @NotNull
+    @NotEmpty
     private LocalDate dob;
-    @Transient
-    private Integer age;
+
 
     @JsonManagedReference
     @ManyToMany

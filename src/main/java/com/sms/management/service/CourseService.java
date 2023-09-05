@@ -1,29 +1,22 @@
 package com.sms.management.service;
 
-import com.sms.management.entity.Student;
+import com.sms.management.dto.CreateCourseDto;
 import com.sms.management.exception.CourseNotFoundException;
 import com.sms.management.repository.CourseRepository;
 import com.sms.management.entity.Course;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CourseService {
-
-
     private final CourseRepository courseRepository;
-
-    @Autowired
-    public CourseService(CourseRepository courseRepository){
-
-        this.courseRepository = courseRepository;
-    }
+    private final ModelMapper modelMapper;
 
     public List<Course> getCourses(){
 
@@ -44,12 +37,13 @@ public class CourseService {
         courseRepository.deleteById(courseId);
     }
 
-    public void addNewCourse(Course course) {
+    public void addNewCourse(CreateCourseDto createCourseDto) {
         Optional<Course> courseOptional = courseRepository
-                .findCoursesByCourseCode(course.getCourseCode());
+                .findCoursesByCourseCode(createCourseDto.getCourseCode());
         if(courseOptional.isPresent()){
             throw new IllegalStateException("course exist");
         }
+        Course course = modelMapper.map(createCourseDto, Course.class);
         courseRepository.save(course);
     }
 

@@ -1,13 +1,19 @@
 package com.sms.management.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sms.management.dto.CreateStudentDto;
+import com.sms.management.dto.GetStudentsDto;
 import com.sms.management.entity.Course;
 import com.sms.management.entity.Student;
 import com.sms.management.exception.StudentNotFoundException;
 import com.sms.management.repository.StudentRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 
 @Service
@@ -16,22 +22,34 @@ public class StudentService {
 
     private final StudentRepository studentRepository;
     private final CourseService courseService;
+    private final ModelMapper modelMapper;
 
-    public List<Student> getStudents() {
-
-        return studentRepository.findAll();
+    public List<GetStudentsDto> getStudents() {
+        List<Student> students = studentRepository.findAll();
+        List<GetStudentsDto> result = new ArrayList<>();
+        students.forEach(student -> {
+            LocalDate dob = student.getDob();
+            LocalDate now = LocalDate.now();
+            int age = Period.between(dob, now).getYears();
+            GetStudentsDto getStudentDto = modelMapper.map(student, GetStudentsDto.class);
+            getStudentDto.setAge(age);
+            result.add(getStudentDto);
+        });
+        return result;
     }
     public List<Student> getStudentsById(Long id) {
+
         return studentRepository.findAllById(Collections.singleton(id));
     }
 
 
-    public void addNewStudent(Student student) {
+    public void addNewStudent(CreateStudentDto createStudentDto) {
         Optional<Student> studentOptional = studentRepository
-                .findStudentByEmail(student.getEmail());
+                .findStudentByEmail(createStudentDto.getEmail());
         if(studentOptional.isPresent()){
             throw new IllegalStateException("email taken");
         }
+        Student student = modelMapper.map(createStudentDto, Student.class);
         studentRepository.save(student);
     }
 
@@ -43,6 +61,7 @@ public class StudentService {
         }
         studentRepository.deleteById(studentId);
     }
+
 
     @Transactional
     public void uptadeStudent(Long studentId, String name, String email) {
@@ -66,10 +85,13 @@ public class StudentService {
         Course course = courseService.getCourseById(courseId);
         student.getAssignedCourses().add(course);
         studentRepository.save(student);
-
     }
 
-    public void deleteStudentFromCourse(Long studentId) {
-        studentRepository.deleteById(studentId);
+    public void deleteStudentFromCourse(Long studentId, Long courseId) {
+        Student student = studentRepository.findById(studentId).orElseThrow(() -> new StudentNotFoundException(
+                "student not found with id: " + studentId));
+        Course course = courseService.getCourseById(courseId);
+        student.getAssignedCourses().remove(course);
+        studentRepository.save(student);
     }
 }

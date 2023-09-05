@@ -1,29 +1,34 @@
 package com.sms.management.controller;
 
+import com.sms.management.dto.CreateStudentDto;
+import com.sms.management.dto.GetStudentsDto;
+import com.sms.management.dto.UptadeStudentDto;
 import com.sms.management.entity.Student;
 import com.sms.management.service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
-@RequestMapping(path = "api/v1/student")
+@Controller
+@RequestMapping(path = "/student")
 public class StudentController {
 
     private final StudentService studentService;
 
     @Autowired
     public StudentController(StudentService studentService) {
-
         this.studentService = studentService;
     }
 
     @GetMapping
-    public List<Student> getStudents() {
+    public List<GetStudentsDto> getStudents() {
         return studentService.getStudents();
     }
 
@@ -32,23 +37,24 @@ public class StudentController {
 
         return studentService.getStudentsById(id);
     }
-
-    @GetMapping(path = "getStudentByCourse")
+     //TODO DÜZELİCEK
+    /*@GetMapping(path = "getStudentByCourse")
     public ResponseEntity<List<Student>> getAllStudents() {
         List<Student> students = studentService.getStudents();
         List<Student> enrolledStudents = new ArrayList<>();
         for (Student student : students) {
-            if (student.getAssignedCourses().size() > 0) {
+            if (!student.getAssignedCourses().isEmpty()) {
                 enrolledStudents.add(student);
             }
         }
-
         return ResponseEntity.ok(enrolledStudents);
-    }
+    }*/
 
-    @PostMapping
-    public void registerNewStudent(@RequestBody Student student) {
+    @PostMapping("/students/new")
+    public String registerNewStudent(Model model, @ModelAttribute  @Valid CreateStudentDto student) {
+        model.addAttribute("students", studentService.getStudents());
         studentService.addNewStudent(student);
+        return "redirect:/student/students";
     }
 
     @DeleteMapping(path = "delete/{studentId}")
@@ -58,7 +64,7 @@ public class StudentController {
     }
 
     @PutMapping
-    public void uptadeStudent(@RequestBody Student student) {
+    public void uptadeStudent(@RequestBody UptadeStudentDto student) {
         studentService.uptadeStudent(student.getId(), student.getName(), student.getEmail());
     }
 
@@ -71,6 +77,23 @@ public class StudentController {
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
+    @DeleteMapping("/{studentId}/deleteStudentFromCourse/{courseId}")
+    public ResponseEntity deleteStudentFromCourse(
+            @PathVariable Long studentId,
+            @PathVariable Long courseId
+    ){
+        studentService.deleteStudentFromCourse(studentId,courseId);
+        return new ResponseEntity((HttpStatus.OK));
+    }
 
+    @GetMapping("/students")
+    public String listStudents(Model model){
+        model.addAttribute("students", studentService.getStudents());
+        return "students";
+    }
+    @GetMapping("/students/new")
+    public String addNewStudentPage(Model model){
+        return "create_student";
+    }
 
 }

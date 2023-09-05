@@ -1,8 +1,9 @@
 package com.sms.management.controller;
 
+import com.sms.management.dto.CreateCourseDto;
+import com.sms.management.dto.UpdateCourseDto;
 import com.sms.management.entity.Course;
 import com.sms.management.repository.CourseRepository;
-import com.sms.management.repository.StudentRepository;
 import com.sms.management.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,7 @@ public class CourseController {
 
     @Autowired
     public CourseController(CourseService courseService){
+
         this.courseService = courseService;
     }
 
@@ -42,19 +44,14 @@ public class CourseController {
     }
 
     @PostMapping
-    public void registerNewCourse(@RequestBody Course course){
+    public void registerNewCourse(@RequestBody CreateCourseDto course){
 
         courseService.addNewCourse(course);
     }
 
     @PutMapping
-    public void updateCourse(@RequestBody Course course){
-        courseService.updateCourse(course.getCourseId(), course.getCourseName(), course.getCourseCode());
+    public void updateCourse(@RequestBody UpdateCourseDto course){
+        courseService.updateCourse(course.getCourseId, course.getCourseName(), course.getCourseCode());
     }
 
-    @DeleteMapping("/{courseId}/students/{studentId}")
-    public ResponseEntity<String> removeStudentFromCourse(@PathVariable Long courseId, @PathVariable Long studentId) {
-        StudentRepository.deleteStudentFromCourse(studentId);
-        return ResponseEntity.ok("Öğrenci başarıyla kursdan silindi.");
-    }
 }
