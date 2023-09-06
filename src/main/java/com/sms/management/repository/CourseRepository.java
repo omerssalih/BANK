@@ -1,5 +1,4 @@
 package com.sms.management.repository;
-
 import com.sms.management.entity.Course;
 import com.sms.management.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;

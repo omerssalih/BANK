@@ -27,6 +27,7 @@ public class CourseController {
 
     @GetMapping
     public List<Course> getCourses(){
+
         return courseService.getCourses();
     }
 
@@ -52,6 +53,7 @@ public class CourseController {
     @PutMapping
     public void updateCourse(@RequestBody UpdateCourseDto course){
         courseService.updateCourse(course.getCourseId, course.getCourseName(), course.getCourseCode());
+
     }
 
 }

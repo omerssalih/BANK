@@ -19,7 +19,6 @@ public class CourseService {
     private final ModelMapper modelMapper;
 
     public List<Course> getCourses(){
-
         return courseRepository.findAll();
     }
 

@@ -1,5 +1,4 @@
 package com.sms.management.entity;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,5 +32,9 @@ public class Course {
     @JsonBackReference
     @ManyToMany(mappedBy = "assignedCourses")
     private Set<Student> students = new HashSet<>();
+
+    @JsonBackReference
+    @ManyToMany(mappedBy = "assignedTeacherCourses")
+    private Set<Teacher> teachers = new HashSet<>();
 
 }
