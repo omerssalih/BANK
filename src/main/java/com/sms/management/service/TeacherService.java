@@ -1,12 +1,18 @@
 package com.sms.management.service;
+import com.sms.management.dto.CreateTeacherDto;
+import com.sms.management.dto.GetStudentsDto;
+import com.sms.management.dto.GetTeachersDto;
 import com.sms.management.entity.Course;
 import com.sms.management.exception.StudentNotFoundException;
 import com.sms.management.repository.TeacherRepository;
 import com.sms.management.entity.Teacher;
-import jakarta.persistence.Entity;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,14 +22,22 @@ public class TeacherService {
 
     private final TeacherRepository teacherRepository;
     private final CourseService courseService;
+    private final ModelMapper modelMapper;
 
-    public void addNewTeacher(Teacher teacher) {
+    public void addNewTeacher(CreateTeacherDto createTeacherDto) {
+        Teacher teacher = modelMapper.map(createTeacherDto, Teacher.class);
         teacherRepository.save(teacher);
     }
 
 
-    public List<Teacher> getTeachers(){
-        return teacherRepository.findAll();
+    public List<GetTeachersDto> getTeachers(){
+        List<Teacher> teachers = teacherRepository.findAll();
+        List<GetTeachersDto> result = new ArrayList<>();
+        teachers.forEach(teacher -> {
+            GetTeachersDto getTeachersDto = modelMapper.map(teacher, GetTeachersDto.class);
+            result.add(getTeachersDto);
+        });
+        return result;
     }
 
     public void deleteTeacher(Long teacherId) {

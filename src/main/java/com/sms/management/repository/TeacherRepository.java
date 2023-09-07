@@ -13,5 +13,6 @@ public interface TeacherRepository
         extends JpaRepository<Teacher, Long> {
 
     @Query("SELECT s FROM Teacher s WHERE s.teacherId = ?1")
-    Optional<Teacher> findByName(Long teachreId);
+    Optional<Teacher> findById(Long teacherId);
+
 }
