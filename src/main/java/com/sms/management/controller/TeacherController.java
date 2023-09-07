@@ -1,16 +1,24 @@
 package com.sms.management.controller;
 
+
+import com.sms.management.dto.CreateTeacherDto;
+import com.sms.management.dto.GetStudentsDto;
+import com.sms.management.dto.GetTeachersDto;
+import com.sms.management.entity.Course;
 import com.sms.management.entity.Teacher;
 import com.sms.management.repository.TeacherRepository;
 import com.sms.management.service.TeacherService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @EntityScan
 @RequiredArgsConstructor
@@ -23,15 +31,24 @@ public class TeacherController {
     @Autowired
     private TeacherRepository teacherRepository;
 
-    @PostMapping(path = "addNewTeacher")
-    public void registerNewTeacher(Teacher teacher){
-        teacherService.addNewTeacher(teacher);
-    }
+    @GetMapping
+    public List<GetTeachersDto> getTeachers(){
+        return teacherService.getTeachers();
 
+    }
+    /*
     @GetMapping(path = "teachers")
     public List<Teacher> getTeachers(){
         return teacherService.getTeachers();
+    }*/
+
+    @PostMapping(path = "/addNewTeacher/new")
+    public ResponseEntity registerNewTeacher(Model model, @RequestBody @Valid CreateTeacherDto teacher){
+        teacherService.addNewTeacher(teacher);
+        return new ResponseEntity("teacher created.", HttpStatus.CREATED);
     }
+
+
 
     @DeleteMapping(path = "deleteTeacher/{teacherId}")
     public void deleteTeacher(@PathVariable("teacherId") Long teacherId){
