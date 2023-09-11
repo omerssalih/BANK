@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UptadeStudentDto {
+public class UpdateStudentDto {
 
     private Long id;
     private String name;

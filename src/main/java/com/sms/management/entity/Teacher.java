@@ -35,10 +35,10 @@ public class Teacher {
     @NotNull
     @NotEmpty
     private String teacherCourse;
-
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
+    @NotNull
+    private int teacherCode;
+    @NotNull
+    private int teacherPassword;
 
     @JsonManagedReference
     @ManyToMany

@@ -2,19 +2,16 @@ package com.sms.management.controller;
 
 import com.sms.management.dto.CreateStudentDto;
 import com.sms.management.dto.GetStudentsDto;
-import com.sms.management.dto.UptadeStudentDto;
+import com.sms.management.dto.UpdateStudentDto;
 import com.sms.management.entity.Student;
 import com.sms.management.service.StudentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -34,7 +31,7 @@ public class StudentController {
 
         return studentService.getStudentsById(id);
     }
-     //TODO DÜZELİCEK
+    //TODO DÜZELİCEK
     /*@GetMapping(path = "getStudentByCourse")
     public ResponseEntity<List<Student>> getAllStudents() {
         List<Student> students = studentService.getStudents();
@@ -48,7 +45,7 @@ public class StudentController {
     }*/
 
     @PostMapping("/students/new")
-    public String registerNewStudent(Model model, @ModelAttribute  @Valid CreateStudentDto student) {
+    public String registerNewStudent(Model model, @ModelAttribute @Valid CreateStudentDto student) {
         model.addAttribute("students", studentService.getStudents());
         studentService.addNewStudent(student);
         return "redirect:/student/students";
@@ -61,7 +58,7 @@ public class StudentController {
     }
 
     @PutMapping
-    public void uptadeStudent(@RequestBody UptadeStudentDto student) {
+    public void uptadeStudent(@RequestBody UpdateStudentDto student) {
         studentService.uptadeStudent(student.getId(), student.getName(), student.getEmail());
     }
 
@@ -78,19 +75,10 @@ public class StudentController {
     public ResponseEntity deleteStudentFromCourse(
             @PathVariable Long studentId,
             @PathVariable Long courseId
-    ){
-        studentService.deleteStudentFromCourse(studentId,courseId);
+    ) {
+        studentService.deleteStudentFromCourse(studentId, courseId);
         return new ResponseEntity((HttpStatus.OK));
     }
 
-    @GetMapping("/students")
-    public String listStudents(Model model){
-        model.addAttribute("students", studentService.getStudents());
-        return "students";
-    }
-    @GetMapping("/students/new")
-    public String addNewStudentPage(Model model){
-        return "create_student";
-    }
 
 }

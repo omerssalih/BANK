@@ -22,4 +22,8 @@ public class CreateTeacherDto{
     @NotNull
     @NotEmpty
     private String teacherCourse;
+    @NotNull
+    private int teacherCode;
+    @NotNull
+    private int teacherPassword;
 }
