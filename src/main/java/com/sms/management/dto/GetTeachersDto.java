@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 @NoArgsConstructor
 public class GetTeachersDto {
 
+    private Long teacherId;
     private String teacherName;
     private String teacherCourse;
     private int teacherCode;

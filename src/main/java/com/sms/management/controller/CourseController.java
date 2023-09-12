@@ -5,53 +5,48 @@ import com.sms.management.dto.UpdateCourseDto;
 import com.sms.management.entity.Course;
 import com.sms.management.repository.CourseRepository;
 import com.sms.management.service.CourseService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RequiredArgsConstructor
+@Slf4j
 @RestController
-@RequestMapping(path = "api/v1/course")
+@RequestMapping(path = "course")
 public class CourseController {
     private final CourseService courseService;
 
-    @Autowired
-    private CourseRepository courseRepository;
-
-    @Autowired
-    public CourseController(CourseService courseService){
-
-        this.courseService = courseService;
-    }
-
     @GetMapping
-    public List<Course> getCourses(){
-
+    public List<Course> getCourses() {
+        log.info("getCourses methodu çalıştı");
         return courseService.getCourses();
     }
 
     @GetMapping(path = "courseId")
-    public List<Course> getCoursesById(Long courseId){
-
+    public List<Course> getCoursesById(Long courseId) {
+        log.info("get course by id: " + courseId);
         return courseService.getCoursesById(courseId);
     }
 
 
     @DeleteMapping(path = "{courseId}")
-    public void deleteCourse(@PathVariable("courseId") Long courseId){
-
+    public void deleteCourse(@PathVariable("courseId") Long courseId) {
+        log.info("course deleted with id: " + courseId);
         courseService.deleteCourse(courseId);
     }
 
     @PostMapping
-    public void registerNewCourse(@RequestBody CreateCourseDto course){
-
+    public void registerNewCourse(@RequestBody CreateCourseDto course) {
+        log.info("course created with name. " + course.getCourseName());
         courseService.addNewCourse(course);
     }
 
     @PutMapping
-    public void updateCourse(@RequestBody UpdateCourseDto course){
+    public void updateCourse(@RequestBody UpdateCourseDto course) {
+        log.info("course updated with name" + course.getCourseName());
         courseService.updateCourse(course.getCourseId, course.getCourseName(), course.getCourseCode());
 
     }
