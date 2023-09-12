@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -45,11 +46,13 @@ public class TeacherController {
 
     @DeleteMapping(path = "deleteTeacher/{teacherId}")
     public void deleteTeacher(@PathVariable("teacherId") Long teacherId) {
+        log.info("teacher deleted with id: " + teacherId);
         teacherService.deleteTeacher(teacherId);
     }
 
     @PutMapping(path = "updateTeacher/{teacherCode}")
     public void updateTeacher(@RequestBody UpdateTeacherDto teacher) {
+        log.info("teacher updated with name: " + teacher.getTeacherName());
         teacherService.updateTeacher(teacher);
     }
 
@@ -58,6 +61,7 @@ public class TeacherController {
             @PathVariable Long teacherId,
             @PathVariable Long courseId
     ) {
+        log.info("teacher assign course with id: " + teacherId);
         teacherService.assignCourseToTeacher(teacherId, courseId);
         return new ResponseEntity(HttpStatus.CREATED);
     }

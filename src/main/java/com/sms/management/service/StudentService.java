@@ -9,22 +9,31 @@ import com.sms.management.exception.StudentNotFoundException;
 import com.sms.management.repository.StudentRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class StudentService {
 
     private final StudentRepository studentRepository;
     private final CourseService courseService;
+    private final CacheService cacheService;
     private final ModelMapper modelMapper;
 
     public List<GetStudentsDto> getStudents() {
+        cacheService.addToCache("getStudents", "students", 20);
+        String cachedValue = cacheService.getFromCache("getStudents");
+        log.info("get students methodu redis ile çalıştı" );
         List<Student> students = studentRepository.findAll();
         List<GetStudentsDto> result = new ArrayList<>();
         students.forEach(student -> {
@@ -37,9 +46,11 @@ public class StudentService {
         });
         return result;
     }
-    public List<Student> getStudentsById(Long id) {
 
-        return studentRepository.findAllById(Collections.singleton(id));
+    @Cacheable(value = "students", key="#studentId")
+    public List<Student> getStudentsById(Long studentId) {
+        log.info("redis deneme" + studentId);
+        return studentRepository.findAllById(Collections.singleton(studentId));
     }
 
 
@@ -64,6 +75,7 @@ public class StudentService {
 
 
     @Transactional
+    @CachePut(value = "students", key = "#studentId")
     public void uptadeStudent(Long studentId, String name, String email) {
         Student student = studentRepository.findById(studentId).
                 orElseThrow(()-> new IllegalStateException("student with id" + studentId + "does not exists"));
@@ -93,5 +105,10 @@ public class StudentService {
         Course course = courseService.getCourseById(courseId);
         student.getAssignedCourses().remove(course);
         studentRepository.save(student);
+    }
+
+    public List<Student> getStudentsByCourse(Long courseId) {
+        Optional<List<Student>> students = studentRepository.findStudentsByAssignedCourses_courseId(courseId);
+        return students.get();
     }
 }

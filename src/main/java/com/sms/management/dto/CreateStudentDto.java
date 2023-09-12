@@ -23,6 +23,5 @@ public class CreateStudentDto {
     @NotEmpty
     private String email;
     @NotNull
-    @NotEmpty
     private LocalDate dob;
 }

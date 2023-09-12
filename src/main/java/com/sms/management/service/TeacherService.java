@@ -57,7 +57,7 @@ public class TeacherService {
     }
 
     public void updateTeacher(UpdateTeacherDto teacherDto) {
-        Optional<Teacher> optionalTeacher = teacherRepository.findByCode(teacherDto.getTeacherCode());
+        Optional<Teacher> optionalTeacher = teacherRepository.findByTeacherCode(teacherDto.getTeacherCode());
         if(optionalTeacher.isPresent()){
             if(optionalTeacher.get().getTeacherPassword() == teacherDto.getInputPassword() ){
                 Teacher teacher = optionalTeacher.get();

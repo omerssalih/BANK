@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,7 +18,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Teacher {
+public class Teacher implements Serializable {
 
     @Getter
     @Id

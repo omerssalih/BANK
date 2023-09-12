@@ -38,7 +38,7 @@ public class CourseService {
 
     public void addNewCourse(CreateCourseDto createCourseDto) {
         Optional<Course> courseOptional = courseRepository
-                .findCoursesByCourseCode(createCourseDto.getCourseCode());
+                .findCourseByCourseCode(createCourseDto.getCourseCode());
         if(courseOptional.isPresent()){
             throw new IllegalStateException("course exist");
         }
