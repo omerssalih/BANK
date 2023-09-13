@@ -30,9 +30,10 @@ public class StudentService {
     private final CacheService cacheService;
     private final ModelMapper modelMapper;
 
+    @Cacheable(value = "students")
     public List<GetStudentsDto> getStudents() {
-        cacheService.addToCache("getStudents", "students", 20);
-        String cachedValue = cacheService.getFromCache("getStudents");
+        /*cacheService.addToCache("getStudents", "students", 20);
+        String cachedValue = cacheService.getFromCache("getStudents");*/
         log.info("get students methodu redis ile çalıştı" );
         List<Student> students = studentRepository.findAll();
         List<GetStudentsDto> result = new ArrayList<>();
