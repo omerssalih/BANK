@@ -7,6 +7,7 @@ import com.sms.management.repository.CourseRepository;
 import java.util.List;
 import java.util.Optional;
 
+import com.sms.management.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class CourseService {
+public class CourseServiceImpl implements CourseService {
   private final CourseRepository courseRepository;
   private final ModelMapper modelMapper;
 

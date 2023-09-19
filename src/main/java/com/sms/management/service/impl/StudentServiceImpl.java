@@ -24,7 +24,7 @@ import org.springframework.stereotype.Service;
 public class StudentServiceImpl implements StudentService {
 
   private final StudentRepository studentRepository;
-  private final CourseService courseService;
+  private final CourseServiceImpl courseServiceImpl;
   private final ModelMapper modelMapper;
 
   @Override
@@ -101,7 +101,7 @@ public class StudentServiceImpl implements StudentService {
                 () -> new StudentNotFoundException("student not found with id: " + studentId));
 
     if (studentRepository.countByAssignedCourses_courseId(courseId) < 4) {
-      Course course = courseService.getCourseById(courseId);
+      Course course = courseServiceImpl.getCourseById(courseId);
       student.getAssignedCourses().add(course);
       studentRepository.save(student);
     } else {
@@ -121,7 +121,7 @@ public class StudentServiceImpl implements StudentService {
             .findById(studentId)
             .orElseThrow(
                 () -> new StudentNotFoundException("student not found with id: " + studentId));
-    Course course = courseService.getCourseById(courseId);
+    Course course = courseServiceImpl.getCourseById(courseId);
     student.getAssignedCourses().remove(course);
     studentRepository.save(student);
   }

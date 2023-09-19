@@ -8,10 +8,10 @@ import org.springframework.http.HttpStatus;
 @Slf4j
 @Getter
 public class CourseNotFoundException extends RuntimeException {
-  private final String message;
+        private final String message;
 
-  public CourseNotFoundException(String message) {
+    public CourseNotFoundException(String message) {
 
     this.message = message;
-  }
+    }
 }
