@@ -3,10 +3,10 @@ package com.sms.management.exception;
 import lombok.Getter;
 
 @Getter
-public class StudentNotFoundException extends RuntimeException {
+public class SMSException extends RuntimeException {
   private final String message;
 
-  public StudentNotFoundException(String message) {
+  public SMSException(String message) {
     this.message = message;
   }
 }

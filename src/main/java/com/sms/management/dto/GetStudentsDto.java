@@ -10,9 +10,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetStudentsDto implements Serializable {
-    private Long id;
-    private String name;
-    private int age;
-    private LocalDate dob;
-    private String email;
+  private Long id;
+  private String name;
+  private int age;
+  private LocalDate dob;
+  private String email;
 }

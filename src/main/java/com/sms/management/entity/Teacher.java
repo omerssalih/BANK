@@ -20,32 +20,29 @@ import java.util.Set;
 @NoArgsConstructor
 public class Teacher implements Serializable {
 
-    @Getter
-    @Id
-    @SequenceGenerator( name = "teacher_sequence",
-            sequenceName = "teacher_sequence",
-            allocationSize = 1)
+  @Getter
+  @Id
+  @SequenceGenerator(
+      name = "teacher_sequence",
+      sequenceName = "teacher_sequence",
+      allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "teacher_sequence")
+  private Long teacherId;
 
-    @GeneratedValue( strategy = GenerationType.SEQUENCE,
-            generator ="teacher_sequence")
-    private Long teacherId;
-    @Size(min = 2, max = 100)
-    @NotNull
-    @NotEmpty
-    private String teacherName;
-    @NotNull
-    @NotEmpty
-    private String teacherCourse;
-    @NotNull
-    private int teacherCode;
-    @NotNull
-    private int teacherPassword;
+  @Size(min = 2, max = 100)
+  @NotNull
+  @NotEmpty
+  private String teacherName;
 
-    @JsonManagedReference
-    @ManyToMany
-    @JoinTable(name = "teacher_course",
-            joinColumns = @JoinColumn(name = "teacher_id"),
-            inverseJoinColumns = @JoinColumn(name ="course_id" )
-    )
-    private Set<Course> assignedTeacherCourses = new HashSet<>();
+  @NotNull private int teacherCode;
+  @NotNull private int teacherPassword;
+
+
+  @JsonManagedReference
+  @ManyToMany
+  @JoinTable(
+      name = "teacher_course",
+      joinColumns = @JoinColumn(name = "teacher_id"),
+      inverseJoinColumns = @JoinColumn(name = "course_id"))
+  private Set<Course> assignedTeacherCourses = new HashSet<>();
 }

@@ -1,4 +1,5 @@
 package com.sms.management.entity;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -25,34 +26,28 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Student implements Serializable {
-    @Id
-    @SequenceGenerator(name = "student_sequence",
-            sequenceName = "student_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "student_sequence")
+  @Id
+  @SequenceGenerator(
+      name = "student_sequence",
+      sequenceName = "student_sequence",
+      allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_sequence")
+  private Long id;
 
-    private Long id;
-    @Size(min = 2, max = 100)
-    @NotNull
-    @NotEmpty
-    private String name;
-    @Email
-    @NotNull
-    @NotEmpty
-    private String email;
-    @NotNull
-    private LocalDate dob;
+  @Size(min = 2, max = 100)
+  @NotNull
+  @NotEmpty
+  private String name;
 
+  @Email @NotNull @NotEmpty private String email;
+  @NotNull private LocalDate dob;
 
-    @JsonManagedReference
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JsonIgnore
-    @JoinTable(name = "student_course",
-    joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name ="course_id" )
-    )
-    private Set<Course> assignedCourses = new HashSet<>();
-
+  @JsonManagedReference
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JsonIgnore
+  @JoinTable(
+      name = "student_course",
+      joinColumns = @JoinColumn(name = "student_id"),
+      inverseJoinColumns = @JoinColumn(name = "course_id"))
+  private Set<Course> assignedCourses = new HashSet<>();
 }

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @NoArgsConstructor
 public class UpdateTeacherDto {
 
-    private int teacherCode;
-    private int inputPassword;
-    private String teacherName;
-    private String teacherCourse;
+  private int teacherCode;
+  private int inputPassword;
+  private String teacherName;
+  private Long courseId;
 }

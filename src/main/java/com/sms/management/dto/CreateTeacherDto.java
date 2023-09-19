@@ -11,19 +11,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateTeacherDto{
+public class CreateTeacherDto {
 
+  @Size(min = 2, max = 100)
+  @NotNull
+  @NotEmpty
+  private String teacherName;
 
-    @Size(min = 2, max = 100)
-    @NotNull
-    @NotEmpty
-    private String teacherName;
-
-    @NotNull
-    @NotEmpty
-    private String teacherCourse;
-    @NotNull
-    private int teacherCode;
-    @NotNull
-    private int teacherPassword;
+  @NotNull private int teacherCode;
+  @NotNull private int teacherPassword;
 }

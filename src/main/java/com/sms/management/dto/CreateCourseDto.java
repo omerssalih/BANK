@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateCourseDto {
 
-    private String courseName;
-    private int courseCode;
+  private String courseName;
+  private int courseCode;
 }

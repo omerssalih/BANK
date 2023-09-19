@@ -10,9 +10,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class UpdateStudentDto {
 
-    private Long id;
-    private String name;
-    private String email;
-    private LocalDate dob;
+  private Long id;
+  private String name;
+  private String email;
+  private LocalDate dob;
 }
-
