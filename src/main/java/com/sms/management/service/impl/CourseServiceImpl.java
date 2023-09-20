@@ -3,11 +3,13 @@ package com.sms.management.service.impl;
 import com.sms.management.dto.CreateCourseDto;
 import com.sms.management.entity.Course;
 import com.sms.management.exception.CourseNotFoundException;
+import com.sms.management.exception.ParentChildException;
 import com.sms.management.repository.CourseRepository;
+import com.sms.management.repository.StudentRepository;
+import com.sms.management.repository.TeacherRepository;
+import com.sms.management.service.CourseService;
 import java.util.List;
 import java.util.Optional;
-
-import com.sms.management.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -20,6 +22,8 @@ import org.springframework.stereotype.Service;
 public class CourseServiceImpl implements CourseService {
   private final CourseRepository courseRepository;
   private final ModelMapper modelMapper;
+  private final StudentRepository studentRepository;
+  private final TeacherRepository teacherRepository;
 
   @Cacheable(value = "courses")
   public List<Course> getCourses() {
@@ -31,8 +35,14 @@ public class CourseServiceImpl implements CourseService {
     boolean exists = courseRepository.existsById(courseId);
     if (!exists) {
       throw new CourseNotFoundException("course with id: " + courseId + " does not exists");
+    } else {
+      if (studentRepository.countByAssignedCourses_courseId(courseId) == 0
+          && teacherRepository.countByAssignedTeacherCourses_courseId(courseId) == 0) {
+        courseRepository.deleteById(courseId);
+      } else {
+        throw new ParentChildException("ilişkili bağlantı vardır.");
+      }
     }
-    courseRepository.deleteById(courseId);
   }
 
   public void addNewCourse(CreateCourseDto createCourseDto) {
@@ -61,11 +71,7 @@ public class CourseServiceImpl implements CourseService {
       courseRepository.save(course); // Veritabanına güncellemeyi kaydet
     } else {
       throw new CourseNotFoundException(
-          "course not found with id: "
-              + courseId); // Kurs bulunamadı durumunda
+          "course not found with id: " + courseId); // Kurs bulunamadı durumunda
     }
   }
-
-
-
 }

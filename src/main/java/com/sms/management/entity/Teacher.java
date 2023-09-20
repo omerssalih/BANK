@@ -37,7 +37,6 @@ public class Teacher implements Serializable {
   @NotNull private int teacherCode;
   @NotNull private int teacherPassword;
 
-
   @JsonManagedReference
   @ManyToMany
   @JoinTable(

@@ -1,44 +1,185 @@
-2023-09-19 13:06:53,795 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2023-09-19 13:06:53,838 INFO o.s.b.StartupInfoLogger [main] Starting SmsApplication using Java 20.0.2 with PID 12588 (C:\Users\onsal\OneDrive\Masaüstü\ideaProjects\demo3\target\classes started by onsal in C:\Users\onsal\OneDrive\Masaüstü\ideaProjects\demo3)
-2023-09-19 13:06:53,840 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
-2023-09-19 13:06:54,870 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode
-2023-09-19 13:06:54,872 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-09-19 13:06:55,050 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 170 ms. Found 3 JPA repository interfaces.
-2023-09-19 13:06:55,072 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode
-2023-09-19 13:06:55,073 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2023-09-19 13:06:55,091 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.CourseRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2023-09-19 13:06:55,092 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2023-09-19 13:06:55,092 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.TeacherRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2023-09-19 13:06:55,092 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
-2023-09-19 13:06:55,690 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
-2023-09-19 13:06:55,804 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1923 ms
-2023-09-19 13:06:56,171 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-09-19 13:06:56,227 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.2.6.Final
-2023-09-19 13:06:56,229 INFO o.h.c.Environment [main] HHH000406: Using bytecode reflection optimizer
-2023-09-19 13:06:56,379 INFO o.h.b.i.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
-2023-09-19 13:06:56,530 INFO o.s.o.j.p.SpringPersistenceUnitInfo [main] No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-09-19 13:06:56,547 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
-2023-09-19 13:06:56,734 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1214c98b
-2023-09-19 13:06:56,736 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
-2023-09-19 13:06:56,990 INFO o.h.b.i.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
-2023-09-19 13:06:57,663 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-09-19 13:06:57,777 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-09-19 13:06:58,386 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-09-19 13:06:58,833 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
-2023-09-19 13:06:58,841 INFO o.s.b.StartupInfoLogger [main] Started SmsApplication in 5.511 seconds (process running for 6.438)
-2023-09-19 13:07:05,768 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
-2023-09-19 13:07:05,770 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
-2023-09-19 13:07:06,360 INFO o.s.a.AbstractOpenApiResource [http-nio-8080-exec-5] Init duration for springdoc-openapi is: 322 ms
-2023-09-19 13:07:12,563 INFO c.s.m.c.TeacherController [http-nio-8080-exec-9] get teachers methodu çalıştı
-2023-09-19 13:07:13,053 INFO c.s.m.s.TeacherService [http-nio-8080-exec-9] Get teacher methodu redis ile çalıştı.
-2023-09-19 13:07:18,822 INFO c.s.m.c.StudentController [http-nio-8080-exec-1] get students methodu çalıştı: 
-2023-09-19 13:07:18,826 INFO c.s.m.s.i.StudentServiceImpl [http-nio-8080-exec-1] get students methodu redis ile çalıştı
-2023-09-19 13:07:23,529 INFO c.s.m.c.CourseController [http-nio-8080-exec-3] getCourses methodu çalıştı
-2023-09-19 13:07:23,530 INFO c.s.m.s.i.CourseServiceImpl [http-nio-8080-exec-3] Get teacher methodu redis ile çalıştı.
-2023-09-19 13:07:31,823 INFO c.s.m.c.CourseController [http-nio-8080-exec-2] course deleted with id: 1
-2023-09-19 13:07:36,979 INFO c.s.m.c.CourseController [http-nio-8080-exec-6] getCourses methodu çalıştı
-2023-09-19 13:07:43,568 INFO c.s.m.c.CourseController [http-nio-8080-exec-7] get course by id: 1
-2023-09-19 13:07:43,574 ERROR c.s.m.e.GlobalExceptionHandler [http-nio-8080-exec-7] course not found exception.course not found with id: 1
-2023-09-19 13:10:32,485 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-09-19 13:10:32,491 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2023-09-19 13:10:32,495 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-09-20 11:50:05,557 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2023-09-20 11:50:05,601 INFO o.s.b.StartupInfoLogger [main] Starting SmsApplication using Java 20.0.2 with PID 14516 (C:\Users\onsal\OneDrive\Masaüstü\ideaProjects\demo3\target\classes started by onsal in C:\Users\onsal\OneDrive\Masaüstü\ideaProjects\demo3)
+2023-09-20 11:50:05,602 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-09-20 11:50:06,425 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-20 11:50:06,428 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-20 11:50:06,593 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 159 ms. Found 3 JPA repository interfaces.
+2023-09-20 11:50:06,611 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-20 11:50:06,612 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-09-20 11:50:06,627 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.CourseRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 11:50:06,628 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 11:50:06,628 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.TeacherRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 11:50:06,628 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2023-09-20 11:50:07,160 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-09-20 11:50:07,266 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1623 ms
+2023-09-20 11:50:07,656 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-20 11:50:07,715 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-09-20 11:50:07,717 INFO o.h.c.Environment [main] HHH000406: Using bytecode reflection optimizer
+2023-09-20 11:50:07,850 INFO o.h.b.i.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2023-09-20 11:50:07,980 INFO o.s.o.j.p.SpringPersistenceUnitInfo [main] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-20 11:50:07,994 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-09-20 11:50:08,285 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1c2cdc67
+2023-09-20 11:50:08,287 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-09-20 11:50:08,586 INFO o.h.b.i.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2023-09-20 11:50:09,234 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-20 11:50:09,378 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-20 11:50:09,903 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-20 11:50:10,406 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-20 11:50:10,413 INFO o.s.b.StartupInfoLogger [main] Started SmsApplication in 5.295 seconds (process running for 6.106)
+2023-09-20 11:50:12,506 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-09-20 11:50:12,506 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 0 ms
+2023-09-20 11:50:13,170 INFO o.s.a.AbstractOpenApiResource [http-nio-8080-exec-7] Init duration for springdoc-openapi is: 290 ms
+2023-09-20 12:41:35,954 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-20 12:41:35,987 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-09-20 12:41:35,998 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-09-20 14:00:41,600 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2023-09-20 14:00:41,640 INFO o.s.b.StartupInfoLogger [main] Starting SmsApplication using Java 20.0.2 with PID 22156 (C:\Users\onsal\OneDrive\Masaüstü\ideaProjects\demo3\target\classes started by onsal in C:\Users\onsal\OneDrive\Masaüstü\ideaProjects\demo3)
+2023-09-20 14:00:41,641 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-09-20 14:00:42,547 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-20 14:00:42,549 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-20 14:00:42,765 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 206 ms. Found 3 JPA repository interfaces.
+2023-09-20 14:00:42,787 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-20 14:00:42,788 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-09-20 14:00:42,804 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.CourseRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 14:00:42,804 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 14:00:42,805 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.TeacherRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 14:00:42,805 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2023-09-20 14:00:43,346 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-09-20 14:00:43,454 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1772 ms
+2023-09-20 14:00:43,839 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-20 14:00:43,898 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-09-20 14:00:43,901 INFO o.h.c.Environment [main] HHH000406: Using bytecode reflection optimizer
+2023-09-20 14:00:44,034 INFO o.h.b.i.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2023-09-20 14:00:44,169 INFO o.s.o.j.p.SpringPersistenceUnitInfo [main] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-20 14:00:44,185 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-09-20 14:00:44,363 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@651caa2e
+2023-09-20 14:00:44,364 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-09-20 14:00:44,636 INFO o.h.b.i.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2023-09-20 14:00:45,296 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-20 14:00:45,405 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-20 14:00:45,882 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-20 14:00:46,359 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-20 14:00:46,365 INFO o.s.b.StartupInfoLogger [main] Started SmsApplication in 5.275 seconds (process running for 6.119)
+2023-09-20 14:00:51,324 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-09-20 14:00:51,326 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2023-09-20 14:00:51,786 INFO o.s.a.AbstractOpenApiResource [http-nio-8080-exec-2] Init duration for springdoc-openapi is: 262 ms
+2023-09-20 14:00:55,079 INFO c.s.m.c.TeacherController [http-nio-8080-exec-6] get teachers methodu çalıştı
+2023-09-20 14:00:55,481 ERROR c.s.m.e.GlobalExceptionHandler [http-nio-8080-exec-6] Bilinmeyen bir hata oluştu.Unable to connect to Redis
+2023-09-20 14:01:00,789 INFO c.s.m.c.TeacherController [http-nio-8080-exec-7] get teachers methodu çalıştı
+2023-09-20 14:01:00,793 ERROR c.s.m.e.GlobalExceptionHandler [http-nio-8080-exec-7] Bilinmeyen bir hata oluştu.Unable to connect to Redis
+2023-09-20 14:01:26,975 INFO c.s.m.c.StudentController [http-nio-8080-exec-8] get students methodu çalıştı: 
+2023-09-20 14:01:26,982 ERROR c.s.m.e.GlobalExceptionHandler [http-nio-8080-exec-8] Bilinmeyen bir hata oluştu.Unable to connect to Redis
+2023-09-20 14:01:57,018 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-20 14:01:57,020 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-09-20 14:01:57,022 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-09-20 14:07:01,823 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2023-09-20 14:07:01,860 INFO o.s.b.StartupInfoLogger [main] Starting SmsApplication using Java 20.0.2 with PID 4572 (C:\Users\onsal\OneDrive\Masaüstü\ideaProjects\demo3\target\classes started by onsal in C:\Users\onsal\OneDrive\Masaüstü\ideaProjects\demo3)
+2023-09-20 14:07:01,862 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-09-20 14:07:02,576 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-20 14:07:02,578 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-20 14:07:02,722 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 136 ms. Found 3 JPA repository interfaces.
+2023-09-20 14:07:02,737 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-20 14:07:02,739 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-09-20 14:07:02,752 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.CourseRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 14:07:02,752 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 14:07:02,752 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.TeacherRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 14:07:02,753 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2023-09-20 14:07:03,209 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-09-20 14:07:03,307 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1406 ms
+2023-09-20 14:07:03,649 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-20 14:07:03,702 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-09-20 14:07:03,704 INFO o.h.c.Environment [main] HHH000406: Using bytecode reflection optimizer
+2023-09-20 14:07:03,823 INFO o.h.b.i.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2023-09-20 14:07:03,937 INFO o.s.o.j.p.SpringPersistenceUnitInfo [main] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-20 14:07:03,951 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-09-20 14:07:04,126 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1e3566e
+2023-09-20 14:07:04,127 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-09-20 14:07:04,365 INFO o.h.b.i.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2023-09-20 14:07:04,961 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-20 14:07:05,240 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-20 14:07:05,766 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-20 14:07:06,345 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-20 14:07:06,352 INFO o.s.b.StartupInfoLogger [main] Started SmsApplication in 4.993 seconds (process running for 5.63)
+2023-09-20 14:07:10,533 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-09-20 14:07:10,534 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2023-09-20 14:07:11,228 INFO o.s.a.AbstractOpenApiResource [http-nio-8080-exec-4] Init duration for springdoc-openapi is: 264 ms
+2023-09-20 14:07:13,934 INFO c.s.m.c.StudentController [http-nio-8080-exec-5] get students methodu çalıştı: 
+2023-09-20 14:07:14,305 ERROR c.s.m.e.GlobalExceptionHandler [http-nio-8080-exec-5] Bilinmeyen bir hata oluştu.Unable to connect to Redis
+2023-09-20 14:07:39,700 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-20 14:07:39,704 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-09-20 14:07:39,706 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-09-20 14:07:42,046 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2023-09-20 14:07:42,076 INFO o.s.b.StartupInfoLogger [main] Starting SmsApplication using Java 20.0.2 with PID 18964 (C:\Users\onsal\OneDrive\Masaüstü\ideaProjects\demo3\target\classes started by onsal in C:\Users\onsal\OneDrive\Masaüstü\ideaProjects\demo3)
+2023-09-20 14:07:42,077 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-09-20 14:07:42,668 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-20 14:07:42,669 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-20 14:07:42,788 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 112 ms. Found 3 JPA repository interfaces.
+2023-09-20 14:07:42,800 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-20 14:07:42,801 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-09-20 14:07:42,812 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.CourseRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 14:07:42,813 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 14:07:42,813 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.TeacherRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 14:07:42,813 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2023-09-20 14:07:43,202 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-09-20 14:07:43,295 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1182 ms
+2023-09-20 14:07:43,588 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-20 14:07:43,641 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-09-20 14:07:43,642 INFO o.h.c.Environment [main] HHH000406: Using bytecode reflection optimizer
+2023-09-20 14:07:43,749 INFO o.h.b.i.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2023-09-20 14:07:43,866 INFO o.s.o.j.p.SpringPersistenceUnitInfo [main] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-20 14:07:43,881 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-09-20 14:07:44,024 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@26f480c6
+2023-09-20 14:07:44,025 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-09-20 14:07:44,257 INFO o.h.b.i.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2023-09-20 14:07:44,860 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-20 14:07:44,944 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-20 14:07:45,359 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-20 14:07:45,761 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-20 14:07:45,767 INFO o.s.b.StartupInfoLogger [main] Started SmsApplication in 4.157 seconds (process running for 4.774)
+2023-09-20 14:07:49,669 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-09-20 14:07:49,670 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2023-09-20 14:07:50,262 INFO o.s.a.AbstractOpenApiResource [http-nio-8080-exec-5] Init duration for springdoc-openapi is: 245 ms
+2023-09-20 14:07:53,185 INFO c.s.m.c.StudentController [http-nio-8080-exec-6] get students methodu çalıştı: 
+2023-09-20 14:07:53,541 INFO c.s.m.s.i.StudentServiceImpl [http-nio-8080-exec-6] get students methodu redis ile çalıştı
+2023-09-20 14:08:33,744 INFO c.s.m.c.TeacherController [http-nio-8080-exec-4] get teachers methodu çalıştı
+2023-09-20 14:08:33,746 INFO c.s.m.s.i.TeacherServiceImpl [http-nio-8080-exec-4] Get teacher methodu redis ile çalıştı.
+2023-09-20 14:09:55,980 INFO c.s.m.c.TeacherController [http-nio-8080-exec-10] teacher deleted with id: 4
+2023-09-20 14:09:56,146 ERROR c.s.m.e.GlobalExceptionHandler [http-nio-8080-exec-10] Bilinmeyen bir hata oluştu.teacher with id4does not exists
+2023-09-20 14:13:53,667 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-20 14:13:53,686 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-09-20 14:13:53,691 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-09-20 14:13:56,681 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2023-09-20 14:13:56,712 INFO o.s.b.StartupInfoLogger [main] Starting SmsApplication using Java 20.0.2 with PID 21760 (C:\Users\onsal\OneDrive\Masaüstü\ideaProjects\demo3\target\classes started by onsal in C:\Users\onsal\OneDrive\Masaüstü\ideaProjects\demo3)
+2023-09-20 14:13:56,713 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-09-20 14:13:57,357 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-20 14:13:57,358 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-20 14:13:57,489 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 125 ms. Found 3 JPA repository interfaces.
+2023-09-20 14:13:57,501 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-20 14:13:57,503 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-09-20 14:13:57,515 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.CourseRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 14:13:57,515 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 14:13:57,515 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sms.management.repository.TeacherRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-09-20 14:13:57,515 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2023-09-20 14:13:57,954 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-09-20 14:13:58,051 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1302 ms
+2023-09-20 14:13:58,339 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-20 14:13:58,393 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-09-20 14:13:58,395 INFO o.h.c.Environment [main] HHH000406: Using bytecode reflection optimizer
+2023-09-20 14:13:58,510 INFO o.h.b.i.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2023-09-20 14:13:58,622 INFO o.s.o.j.p.SpringPersistenceUnitInfo [main] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-20 14:13:58,637 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-09-20 14:13:58,779 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@26bce60d
+2023-09-20 14:13:58,780 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-09-20 14:13:59,005 INFO o.h.b.i.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2023-09-20 14:13:59,608 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-20 14:13:59,707 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-20 14:14:00,154 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-20 14:14:00,574 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-20 14:14:00,580 INFO o.s.b.StartupInfoLogger [main] Started SmsApplication in 4.326 seconds (process running for 4.933)
+2023-09-20 14:14:04,840 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-09-20 14:14:04,841 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2023-09-20 14:14:04,866 INFO c.s.m.c.TeacherController [http-nio-8080-exec-1] teacher deleted with id: 4
+2023-09-20 14:14:05,094 ERROR c.s.m.e.GlobalExceptionHandler [http-nio-8080-exec-1] Bilinmeyen bir hata oluştu.teacher with id4does not exists
+2023-09-20 14:29:25,637 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-20 14:29:25,645 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-09-20 14:29:25,653 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.

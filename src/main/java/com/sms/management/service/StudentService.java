@@ -4,9 +4,8 @@ import com.sms.management.dto.CreateStudentDto;
 import com.sms.management.dto.GetStudentsDto;
 import com.sms.management.entity.Student;
 import jakarta.transaction.Transactional;
-import org.springframework.cache.annotation.Cacheable;
-
 import java.util.List;
+import org.springframework.cache.annotation.Cacheable;
 
 public interface StudentService {
   @Cacheable(value = "students")

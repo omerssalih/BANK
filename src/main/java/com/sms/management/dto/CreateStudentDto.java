@@ -19,8 +19,6 @@ public class CreateStudentDto {
   @NotEmpty
   private String name;
 
-  @Email @NotNull @NotEmpty
-  private String email;
-  @NotNull
-  private LocalDate dob;
+  @Email @NotNull @NotEmpty private String email;
+  @NotNull private LocalDate dob;
 }

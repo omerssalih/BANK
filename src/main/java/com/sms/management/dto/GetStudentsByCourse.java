@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetStudentsByCourse {
-    private String name;
-    private String email;
-    private LocalDate dob;
+  private String name;
+  private String email;
+  private LocalDate dob;
 }

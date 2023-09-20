@@ -4,11 +4,11 @@ import com.sms.management.dto.CreateCourseDto;
 import com.sms.management.dto.UpdateCourseDto;
 import com.sms.management.entity.Course;
 import com.sms.management.service.CourseService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 @RestController

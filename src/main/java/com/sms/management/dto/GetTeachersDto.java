@@ -1,13 +1,11 @@
 package com.sms.management.dto;
 
 import com.sms.management.entity.Course;
+import java.io.Serializable;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.Bean;
-
-import java.io.Serializable;
-import java.util.List;
 
 @Data
 @AllArgsConstructor

@@ -38,4 +38,11 @@ public class GlobalExceptionHandler {
     log.error("Bilinmeyen bir hata oluştu." + exception.getMessage());
     return new ResponseEntity("Kaydetmek istediğiniz sınıf doludur.", HttpStatus.BAD_REQUEST);
   }
+
+  @ExceptionHandler(ParentChildException.class)
+  public ResponseEntity parentChildException(ParentChildException exception) {
+    log.error("Bilinmeyen bir hata oluştu." + exception.getMessage());
+    return new ResponseEntity(
+        "Silmek istediğiniz sınıfa kayıtlı öğrenci/öğretmen vardır.", HttpStatus.BAD_REQUEST);
+  }
 }

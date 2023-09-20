@@ -1,6 +1,5 @@
 package com.sms.management.dto;
 
-import com.sms.management.entity.Teacher;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
